@@ -20,7 +20,7 @@ requestButton.addEventListener('click', async () => {
         console.log("OK");
         // Permissions must be requested from inside a user gesture, like a button's
         // click handler.
-        chrome.permissions.request({
+        navigator.permissions.request({
           permissions: ['usb'],
           origins: ['https://blanneau44.github.io/']
         }, function(granted) {
