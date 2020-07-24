@@ -40,8 +40,8 @@ consentButton.addEventListener('click', async () => {
 
 const consentButton = document.getElementById('consent-button');
 
-const deviceFilters = [{ usagePage: 0x0b, usage: 0x20 }];
-
+//const deviceFilters = [{ usagePage: 0x0b, usage: 0x20 }];
+const deviceFilters = [{ }];
 consentButton.addEventListener('click', async () => {
   let device;
 
