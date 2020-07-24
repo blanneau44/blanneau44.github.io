@@ -16,7 +16,7 @@ requestButton.addEventListener('click', async () => {
     console.log('HID: ${device.productName}');
   }
 });
-document.querySelector('bouton01').addEventListener('click', function(event) {
+document.getElementById('bouton01').addEventListener('click', function(event) {
   // Permissions must be requested from inside a user gesture, like a button's
   // click handler.
   chrome.permissions.request({
