@@ -38,19 +38,22 @@ consentButton.addEventListener('click', async () => {
   */
 
 
-const consentButton = document.getElementById('consent-button');
-
-//const deviceFilters = [{ usagePage: 0x0b, usage: 0x20 }];
-const deviceFilters = [{ }];
-consentButton.addEventListener('click', async () => {
+let requestButton = document.getElementById('request-hid-device');
+requestButton.addEventListener('click', async () => {
   let device;
-
   try {
-    const devices = await navigator.hid.requestDevice({ filters: deviceFilters });
-    device = devices[0];
+    device = await navigator.hid.requestDevice({ filters: [{
+        vendorId: 0x0925,
+        productId: 0x1458
+        //usagePage: 0x0C,
+        //usage: 0x01
+    }]});
   } catch (error) {
-    console.warn('No device access granted', error);
-    return;
+    console.log('No device was selected.');
+  }
+
+  if (device !== undefined) {
+    console.log('HID: ${device.productName}');
   }
 });
 
