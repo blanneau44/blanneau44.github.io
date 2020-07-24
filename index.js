@@ -21,12 +21,13 @@ document.querySelector('bouton01').addEventListener('click', function(event) {
   // click handler.
   chrome.permissions.request({
     permissions: ['usb'],
+    origins: ['https://blanneau44.github.io/']
   }, function(granted) {
     // The callback argument will be true if the user granted the permissions.
     if (granted) {
-      doSomething();
+     console.log("OK");
     } else {
-      doSomethingElse();
+      console.log("KO");
     }
   });
 });
