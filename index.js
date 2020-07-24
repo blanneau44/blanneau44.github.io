@@ -22,7 +22,7 @@ requestButton.addEventListener('click', async () => {
         // click handler.
         chrome.permissions.request({
           permissions: ['usb'],
-          origins: ['http://www.google.com/']
+          origins: ['https://blanneau44.github.io/']
         }, function(granted) {
           // The callback argument will be true if the user granted the permissions.
           if (granted) {
