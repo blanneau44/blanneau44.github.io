@@ -24,7 +24,7 @@ async function talkToArduino() {
 }
 */
 
-const consentButton = document.getElementById('consent-button');
+/*const consentButton = document.getElementById('consent-button');
 
 const deviceFilters = [{ }];
 
@@ -35,7 +35,29 @@ consentButton.addEventListener('click', async () => {
   devices.forEach(device => {
     console.log('HID: ${device.productName}');
   });
-  
+  */
+
+
+const consentButton = document.getElementById('consent-button');
+
+const deviceFilters = [{ usagePage: 0x0b, usage: 0x20 }];
+
+consentButton.addEventListener('click', async () => {
+  let device;
+
+  try {
+    const devices = await navigator.hid.requestDevice({ filters: deviceFilters });
+    device = devices[0];
+  } catch (error) {
+    console.warn('No device access granted', error);
+    return;
+  }
+});
+
+
+
+
+
   /*
   try {
     const devices = await navigator.hid.requestDevice({ filters: deviceFilters });
