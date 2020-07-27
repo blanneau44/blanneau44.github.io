@@ -7,9 +7,10 @@
   "app": {
     "background": {
       "scripts": [ "main.js" ]
+      "persistent": true
     }
   },
-  "permissions": [
+  "permissions": ["hid",
 {
   "usbDevices":
   [
