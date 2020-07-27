@@ -1,7 +1,7 @@
 let requestButton = document.getElementById('request-hid-device');
 requestButton.addEventListener('click', async () => {
-  //requestPermissions();
-  let device;
+
+  /*let device;
   try {
     device = await navigator.hid.requestDevice({ filters: [{
         vendorId: 0x0925,
@@ -15,9 +15,21 @@ requestButton.addEventListener('click', async () => {
 
   if (device !== undefined) {
     console.log('HID: ${device.productName}');
+  }*/
+  navigator.permissions.query({name:'usb'}).then(function(p) {
+  switch (p.state) {
+    case 'denied':
+      //showTopRestaurants();
+      console.log("denied");
+      break;
+    case 'granted':
+      console.log("granted");
+      break;
+    case 'prompt':
+      console.log("prompt");
   }
-  
-});/*
+});
+/*});
 document.getElementById('bouton01').addEventListener('click', function(event) {
   // Permissions must be requested from inside a user gesture, like a button's
   // click handler.
