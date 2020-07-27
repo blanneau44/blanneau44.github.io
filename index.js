@@ -48,10 +48,10 @@ function requestPermissions() {
     } else {
       console.log("Permission was refused");
     }
-    return chrome.permissions.getAll();  
+    return navigator.permissions.getAll();  
   }
 
-  chrome.permissions.request(permissionsToRequest)
+  navigator.permissions.request(permissionsToRequest)
     .then(onResponse)
     .then((currentPermissions) => {
     console.log(`Current permissions:`, currentPermissions);
