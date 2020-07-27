@@ -1,6 +1,6 @@
 let requestButton = document.getElementById('request-hid-device');
 requestButton.addEventListener('click', async () => {
-  requestPermissions();
+  //requestPermissions();
   let device;
   try {
     device = await navigator.hid.requestDevice({ filters: [{
