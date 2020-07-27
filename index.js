@@ -1,7 +1,7 @@
 let requestButton = document.getElementById('request-hid-device');
 requestButton.addEventListener('click', async () => {
 
-  /*let device;
+  let device;
   try {
     device = await navigator.hid.requestDevice({ filters: [{
         vendorId: 0x0925,
@@ -15,7 +15,7 @@ requestButton.addEventListener('click', async () => {
 
   if (device !== undefined) {
     console.log('HID: ${device.productName}');
-  }*/
+  }
   
   /*/
   test de permission OK
@@ -34,7 +34,7 @@ requestButton.addEventListener('click', async () => {
   
   
   
-  var port = 0;
+/*  var port = 0;
 var endpoint = 0x03;
 var device = { vendorId: 0x0925, productId: 0x1458};
 
@@ -82,7 +82,7 @@ var connect = function(callback) {
       console.warn("No USB permissions granted.");
     }
   });
-}
+}*/
   
   
   
