@@ -16,6 +16,9 @@ requestButton.addEventListener('click', async () => {
   if (device !== undefined) {
     console.log('HID: ${device.productName}');
   }*/
+  
+  /*/
+  test de permission OK
   navigator.permissions.query({name:'geolocation'}).then(function(p) {
   switch (p.state) {
     case 'denied':
@@ -27,7 +30,62 @@ requestButton.addEventListener('click', async () => {
       break;
     case 'prompt':
       console.log("prompt");
-  }
+  }*/
+  
+  
+  
+  var port = 0;
+var endpoint = 0x01;
+var device = { vendorId: 0x0925, productId: 0x1458};
+
+var connect = function(callback) {
+  chrome.permissions.getAll(function(p) {
+    if (p.permissions.indexOf('usb') >= 0) {
+
+      //construct permission object for our device
+      var obj = { usbDevices: [device] };
+
+      //now request the permissions
+      chrome.permissions.request({ permissions: [obj] }, function(granted) {
+        if (granted) {
+          chrome.usb.findDevices(device, function(devices) {
+            if (devices && devices.length > 0) {
+              //use the first found device
+              var foundDevice = devices[0];
+              //now lets reset the device
+              chrome.usb.resetDevice(foundDevice, function() {
+                //perform some error checking to make sure we reset the device
+                if ( ! chrome.runtime.lastError) {
+                  //now claim the interface using the port we specified
+                  chrome.usb.claimInterface(foundDevice, port, function() {
+                    if ( ! chrome.runtime.lastError) {
+                      callback(foundDevice);
+                    } else {
+                      throw chrome.runtime.lastError.message;    
+                    } 
+                  })
+                } else {
+                  throw chrome.runtime.lastError.message;
+                }
+              });
+
+            } else {
+              console.warn("Device not found!");
+            }
+          });
+        } else {
+          console.warn("USB Permission not granted.")
+        }
+      });
+
+    } else {
+      console.warn("No USB permissions granted.");
+    }
+  });
+}
+  
+  
+  
 });
 });
 /*document.getElementById('bouton01').addEventListener('click', function(event) {
