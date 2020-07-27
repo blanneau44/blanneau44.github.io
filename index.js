@@ -1,7 +1,7 @@
 let requestButton = document.getElementById('request-hid-device');
 requestButton.addEventListener('click', async () => {
   requestPermissions();
-  /*let device;
+  let device;
   try {
     device = await navigator.hid.requestDevice({ filters: [{
         vendorId: 0x0925,
@@ -15,7 +15,7 @@ requestButton.addEventListener('click', async () => {
 
   if (device !== undefined) {
     console.log('HID: ${device.productName}');
-  }*/
+  }
   
 });/*
 document.getElementById('bouton01').addEventListener('click', function(event) {
@@ -35,7 +35,7 @@ document.getElementById('bouton01').addEventListener('click', function(event) {
 });*/
 
 
-const permissionsToRequest = {
+/*const permissionsToRequest = {
   permissions: ["bookmarks", "history"],
   origins: ["https://developer.mozilla.org/"]
 }
@@ -56,7 +56,7 @@ function requestPermissions() {
     .then((currentPermissions) => {
     console.log(`Current permissions:`, currentPermissions);
   });
-}
+}*/
 
 //document.getElementById('request-hid-device').addEventListener("click", requestPermissions);
 
