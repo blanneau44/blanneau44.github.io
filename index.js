@@ -87,7 +87,7 @@ var connect = function(callback) {
   
   
 });
-});
+//});
 /*document.getElementById('bouton01').addEventListener('click', function(event) {
   // Permissions must be requested from inside a user gesture, like a button's
   // click handler.
