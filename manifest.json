@@ -8,7 +8,7 @@
       "scripts": [ "main.js" ]
     }
   },
-  "permissions": [ "hid" ]
+  "permissions": [ "hid" ],
   
   "hid",
 {
