@@ -1,7 +1,7 @@
 let requestButton = document.getElementById('request-hid-device');
 requestButton.addEventListener('click', async () => {
-
-  let device;
+chrome.hid.getDevices({}, onDevicesEnumerated);
+  /*let device;
   try {
     device = await navigator.hid.requestDevice({ filters: [{
         vendorId: 0x0925,
@@ -15,7 +15,7 @@ requestButton.addEventListener('click', async () => {
 
   if (device !== undefined) {
     console.log('HID: ${device.productName}');
-  }
+  }*/
   
   /*/
   test de permission OK
@@ -87,6 +87,21 @@ var connect = function(callback) {
   
   
 });
+
+  var onDevicesEnumerated = function(devices) {
+    if (chrome.runtime.lastError) {
+      console.error("Unable to enumerate devices: " +
+                    chrome.runtime.lastError.message);
+      return;
+    }
+
+    for (var device of devices) {
+      onDeviceAdded(device);
+    }
+  }
+
+
+
 //});
 /*document.getElementById('bouton01').addEventListener('click', function(event) {
   // Permissions must be requested from inside a user gesture, like a button's
