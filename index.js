@@ -1,4 +1,4 @@
-let requestButton = document.getElementById('request-hid-device');
+/*let requestButton = document.getElementById('request-hid-device');
 requestButton.addEventListener('click', async () => {
   let device;
   try {
@@ -30,4 +30,32 @@ document.getElementById('bouton01').addEventListener('click', function(event) {
       console.log("KO");
     }
   });
-});
+});*/
+
+
+const permissionsToRequest = {
+  permissions: ["bookmarks", "history"],
+  origins: ["https://developer.mozilla.org/"]
+}
+
+function requestPermissions() {
+
+  function onResponse(response) {
+    if (response) {
+      console.log("Permission was granted");
+    } else {
+      console.log("Permission was refused");
+    }
+    return browser.permissions.getAll();  
+  }
+
+  browser.permissions.request(permissionsToRequest)
+    .then(onResponse)
+    .then((currentPermissions) => {
+    console.log(`Current permissions:`, currentPermissions);
+  });
+}
+
+document.querySelector("#request").addEventListener("click", requestPermissions);
+
+
