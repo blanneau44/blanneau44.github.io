@@ -96,7 +96,8 @@ var connect = function(callback) {
     }
 
     for (var device of devices) {
-      onDeviceAdded(device);
+      //onDeviceAdded(device);
+      console.log(device);
     }
   }
 
