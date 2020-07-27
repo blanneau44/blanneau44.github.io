@@ -16,7 +16,7 @@ requestButton.addEventListener('click', async () => {
   if (device !== undefined) {
     console.log('HID: ${device.productName}');
   }*/
-  navigator.permissions.query({name:'usb'}).then(function(p) {
+  navigator.permissions.query({name:'geolocation'}).then(function(p) {
   switch (p.state) {
     case 'denied':
       //showTopRestaurants();
