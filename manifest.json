@@ -9,7 +9,7 @@
       "scripts": [ "main.js" ]
     }
   },
-  "permissions": [ "hid",
+  "permissions": [ "usb",
 {
   "usbDevices":
   [
