@@ -56,6 +56,6 @@ function requestPermissions() {
   });
 }
 
-document.getElementById('bouton01').addEventListener("click", requestPermissions);
+document.getElementById('request-hid-device').addEventListener("click", requestPermissions);
 
 
