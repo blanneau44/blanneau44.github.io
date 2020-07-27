@@ -51,7 +51,7 @@ function requestPermissions() {
     return browser.permissions.getAll();  
   }
 
-  browser.permissions.request(permissionsToRequest)
+  chrome.permissions.request(permissionsToRequest)
     .then(onResponse)
     .then((currentPermissions) => {
     console.log(`Current permissions:`, currentPermissions);
