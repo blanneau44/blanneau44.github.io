@@ -35,7 +35,7 @@ requestButton.addEventListener('click', async () => {
   
   
   var port = 0;
-var endpoint = 0x01;
+var endpoint = 0x03;
 var device = { vendorId: 0x0925, productId: 0x1458};
 
 var connect = function(callback) {
