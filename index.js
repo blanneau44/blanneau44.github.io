@@ -48,7 +48,7 @@ function requestPermissions() {
     } else {
       console.log("Permission was refused");
     }
-    return browser.permissions.getAll();  
+    return chrome.permissions.getAll();  
   }
 
   chrome.permissions.request(permissionsToRequest)
