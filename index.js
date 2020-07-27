@@ -56,6 +56,6 @@ function requestPermissions() {
   });
 }
 
-document.querySelector("#request").addEventListener("click", requestPermissions);
+document.querySelector('bouton01').addEventListener("click", requestPermissions);
 
 
